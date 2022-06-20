@@ -74,6 +74,17 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - print_workflow_id
+  cause-failure:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: return 1
+  print-on-fail:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: echo "it failed and I rolled back"
+    when: on_fail
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
