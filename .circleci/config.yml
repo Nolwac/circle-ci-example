@@ -79,7 +79,8 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run: return 1
-      - run: echo "it failed and I rolled back"
+      - run: 
+          command: "it failed and I rolled back"
           when: on_fail
 
 # Invoke jobs via workflows
